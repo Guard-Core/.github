@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="profile/guard_core_logo_512.png" width="180" alt="Guard Core logo"/>
+  <img src="../profile/guard_core_logo_512.png" width="180" alt="Guard Core logo"/>
 </p>
 
 # Guard Core

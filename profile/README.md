@@ -13,7 +13,7 @@ The engine sits **in-process** - no proxy, no edge box - detecting and blocking 
 | Language | Engine | Adapters |
 |---|---|---|
 | Python | [guard-core](https://github.com/Guard-Core/guard-core) | [fastapi-guard](https://github.com/Guard-Core/fastapi-guard) - [flaskapi-guard](https://github.com/Guard-Core/flaskapi-guard) - [djapi-guard](https://github.com/Guard-Core/djapi-guard) - [tornadoapi-guard](https://github.com/Guard-Core/tornadoapi-guard) |
-| TypeScript | [guard-core-ts](https://github.com/rennf93/guard-core-ts) | express, fastify, nestjs and hono adapters ship inside guard-core-ts |
+| TypeScript | [guard-core-ts](https://github.com/rennf93/guard-core-ts) | [express](https://github.com/rennf93/guard-core-ts/tree/master/packages/express) - [fastify](https://github.com/rennf93/guard-core-ts/tree/master/packages/fastify) - [nestjs](https://github.com/rennf93/guard-core-ts/tree/master/packages/nestjs) - [hono](https://github.com/rennf93/guard-core-ts/tree/master/packages/hono) |
 | Rust | [guard-core-rs](https://github.com/rennf93/guard-core-rs) | [axum-guard-rs](https://github.com/rennf93/axum-guard-rs) - [actix-guard-rs](https://github.com/rennf93/actix-guard-rs) - [rocket-guard-rs](https://github.com/rennf93/rocket-guard-rs) - [tower-guard-rs](https://github.com/rennf93/tower-guard-rs) |
 | Go | [guard-core-go](https://github.com/rennf93/guard-core-go) | [gin-guard](https://github.com/rennf93/gin-guard) - [fiber-guard](https://github.com/rennf93/fiber-guard) - [echo-guard](https://github.com/rennf93/echo-guard) - [nethttp-guard](https://github.com/rennf93/nethttp-guard) - [prest-guard](https://github.com/rennf93/prest-guard) |
 | PHP | [guard-core-php](https://github.com/rennf93/guard-core-php) | [laravel-guard](https://github.com/rennf93/laravel-guard) - [slim-guard](https://github.com/rennf93/slim-guard) - [symfony-guard](https://github.com/rennf93/symfony-guard) - [psr15-guard](https://github.com/rennf93/psr15-guard) |
@@ -24,8 +24,8 @@ The engine sits **in-process** - no proxy, no edge box - detecting and blocking 
 
 ## Tooling
 
-- [guard-core-mcp](https://github.com/Guard-Core/guard-core-mcp): an MCP server that answers Guard questions from the libraries installed in your interpreter
-- [saas-issues](https://github.com/Guard-Core/saas-issues): public issue tracker for the Guard Core SaaS
+- [Guard-Core-MCP](https://github.com/Guard-Core/guard-core-mcp): an MCP server that answers Guard questions from the libraries installed in your interpreter
+- [SaaS Issues](https://github.com/Guard-Core/saas-issues): public issue tracker for the Guard Core SaaS
 
 ## Links
 

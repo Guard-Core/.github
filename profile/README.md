@@ -1,8 +1,6 @@
 <p align="center">
-  <img src="../profile/guard_core_legend_1200x630.png" width="180" alt="Guard Core logo"/>
+  <img src="../profile/guard_core_legend_1200x630.svg" alt="Guard Core logo"/>
 </p>
-
-# Guard Core
 
 Open-source, framework-agnostic API security: one detection engine, thin adapters for the framework you already run.
 

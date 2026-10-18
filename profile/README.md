@@ -11,14 +11,15 @@ The engine sits **in-process** - no proxy, no edge box - detecting and blocking 
 | Language | Engine | Adapters |
 |---|---|---|
 | Python | [guard-core](https://github.com/Guard-Core/guard-core) | [fastapi-guard](https://github.com/Guard-Core/fastapi-guard) - [flaskapi-guard](https://github.com/Guard-Core/flaskapi-guard) - [djapi-guard](https://github.com/Guard-Core/djapi-guard) - [tornadoapi-guard](https://github.com/Guard-Core/tornadoapi-guard) |
-| TypeScript | [guard-core-ts](https://github.com/rennf93/guard-core-ts) | [express](https://github.com/rennf93/guard-core-ts/tree/master/packages/express) - [fastify](https://github.com/rennf93/guard-core-ts/tree/master/packages/fastify) - [nestjs](https://github.com/rennf93/guard-core-ts/tree/master/packages/nestjs) - [hono](https://github.com/rennf93/guard-core-ts/tree/master/packages/hono) |
-| Rust | [guard-core-rs](https://github.com/rennf93/guard-core-rs) | [axum-guard-rs](https://github.com/rennf93/axum-guard-rs) - [actix-guard-rs](https://github.com/rennf93/actix-guard-rs) - [rocket-guard-rs](https://github.com/rennf93/rocket-guard-rs) - [tower-guard-rs](https://github.com/rennf93/tower-guard-rs) |
-| Go | [guard-core-go](https://github.com/rennf93/guard-core-go) | [gin-guard](https://github.com/rennf93/gin-guard) - [fiber-guard](https://github.com/rennf93/fiber-guard) - [echo-guard](https://github.com/rennf93/echo-guard) - [nethttp-guard](https://github.com/rennf93/nethttp-guard) - [prest-guard](https://github.com/rennf93/prest-guard) |
-| PHP | [guard-core-php](https://github.com/rennf93/guard-core-php) | [laravel-guard](https://github.com/rennf93/laravel-guard) - [slim-guard](https://github.com/rennf93/slim-guard) - [symfony-guard](https://github.com/rennf93/symfony-guard) - [psr15-guard](https://github.com/rennf93/psr15-guard) |
+| TypeScript | [guard-core-ts](https://github.com/Guard-Core/guard-core-ts) | [express](https://github.com/Guard-Core/guard-core-ts/tree/master/packages/express) - [fastify](https://github.com/Guard-Core/guard-core-ts/tree/master/packages/fastify) - [nestjs](https://github.com/Guard-Core/guard-core-ts/tree/master/packages/nestjs) - [hono](https://github.com/Guard-Core/guard-core-ts/tree/master/packages/hono) |
+| Rust | [guard-core-rs](https://github.com/Guard-Core/guard-core-rs) | [axum-guard-rs](https://github.com/Guard-Core/axum-guard-rs) - [actix-guard-rs](https://github.com/Guard-Core/actix-guard-rs) - [rocket-guard-rs](https://github.com/Guard-Core/rocket-guard-rs) - [tower-guard-rs](https://github.com/Guard-Core/tower-guard-rs) |
+| Go | [guard-core-go](https://github.com/Guard-Core/guard-core-go) | [gin-guard](https://github.com/Guard-Core/gin-guard) - [fiber-guard](https://github.com/Guard-Core/fiber-guard) - [echo-guard](https://github.com/Guard-Core/echo-guard) - [nethttp-guard](https://github.com/Guard-Core/nethttp-guard) - [prest-guard](https://github.com/Guard-Core/prest-guard) |
+| PHP | [guard-core-php](https://github.com/Guard-Core/guard-core-php) | [laravel-guard](https://github.com/Guard-Core/laravel-guard) - [slim-guard](https://github.com/Guard-Core/slim-guard) - [symfony-guard](https://github.com/Guard-Core/symfony-guard) - [psr15-guard](https://github.com/Guard-Core/psr15-guard) |
+| JVM (Kotlin, Java) | [guard-core-jvm](https://github.com/Guard-Core/guard-core-jvm) | [spring-boot-guard](https://github.com/Guard-Core/spring-boot-guard) - [ktor-guard](https://github.com/Guard-Core/ktor-guard) |
 
 ## Telemetry agents
 
-[guard-agent](https://github.com/Guard-Core/guard-agent) (Python) - [guard-agent-ts](https://github.com/rennf93/guard-agent-ts) - [guard-agent-rs](https://github.com/rennf93/guard-agent-rs) - [guard-agent-go](https://github.com/rennf93/guard-agent-go) - [guard-agent-php](https://github.com/rennf93/guard-agent-php)
+[guard-agent](https://github.com/Guard-Core/guard-agent) (Python) - [guard-agent-ts](https://github.com/Guard-Core/guard-agent-ts) - [guard-agent-rs](https://github.com/Guard-Core/guard-agent-rs) - [guard-agent-go](https://github.com/Guard-Core/guard-agent-go) - [guard-agent-php](https://github.com/Guard-Core/guard-agent-php) - [guard-agent-jvm](https://github.com/Guard-Core/guard-agent-jvm)
 
 ## Tooling
 
@@ -33,4 +34,4 @@ The engine sits **in-process** - no proxy, no edge box - detecting and blocking 
 
 ## Status
 
-The Python family is the reference implementation and ships from this org. The TypeScript, Rust, Go and PHP families are developed in the open and join this org as they reach parity.
+Every family lives in this org. The Python family is the reference implementation, and the TypeScript, Rust, Go, PHP and JVM engines run its conformance fixtures in CI. Engines release together under one version, and so do the agents; adapters version on their own because they track their frameworks.

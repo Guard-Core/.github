@@ -1,0 +1,16 @@
+# Maintainers
+
+The Guard Core organization has one maintainer.
+
+| Name | GitHub | Email | Role |
+|---|---|---|---|
+| Renzo Franceschini | [@rennf93](https://github.com/rennf93) | rennf93@guard-core.com | Lead maintainer of every repository: reviews and merges every change, publishes every release, handles security reports |
+
+## Identity
+
+- GitHub profile [@rennf93](https://github.com/rennf93): name Renzo Franceschini, website guard-core.com.
+- [guard-core.com/company](https://guard-core.com/company) names Renzo Franceschini and links to @rennf93.
+- The [Guard-Core](https://github.com/Guard-Core) GitHub organization has guard-core.com as a verified domain.
+- Package registries: PyPI and Maven Central metadata name Renzo Franceschini with rennf93@guard-core.com; the Go modules live under `github.com/rennf93/`; the Packagist packages under the vendor `rennf93`.
+
+Each repository has its own MAINTAINERS.md and CODEOWNERS.

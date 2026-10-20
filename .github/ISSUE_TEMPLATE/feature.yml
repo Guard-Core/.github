@@ -1,0 +1,27 @@
+name: Feature request
+description: Suggest an improvement
+title: "[FEATURE] "
+labels: [enhancement]
+body:
+  - type: input
+    id: value
+    attributes:
+      label: Value this delivers
+      description: One sentence a user could witness once this exists.
+    validations:
+      required: true
+  - type: textarea
+    id: job
+    attributes:
+      label: The job you are trying to get done
+      description: The outcome you need, not the mechanism you imagine.
+    validations:
+      required: true
+  - type: textarea
+    id: workaround
+    attributes:
+      label: How you work around it today
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context

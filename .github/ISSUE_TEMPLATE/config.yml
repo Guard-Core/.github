@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Guard Core documentation
+    url: https://guard-core.com
+    about: Start here; each library links its own docs site from its README
+  - name: Security vulnerability
+    url: https://github.com/Guard-Core/.github/blob/main/SECURITY.md
+    about: Never open a public issue for a vulnerability; report it privately as described here
+  - name: Discord
+    url: https://discord.gg/ZW7ZJbjMkK
+    about: Questions and support in #help, new versions in #releases, development streams in #dev-python, #dev-typescript, #dev-rust, #dev-go, #dev-php, #dev-java and #dev-saas

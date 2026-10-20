@@ -8,4 +8,4 @@ contact_links:
     about: Never open a public issue for a vulnerability; report it privately as described here
   - name: Discord
     url: https://discord.gg/ZW7ZJbjMkK
-    about: Questions and support in #help, new versions in #releases, development stream in #dev-feed
+    about: Questions and support in #help, new versions in #releases, development streams in #dev-python, #dev-typescript, #dev-rust, #dev-go, #dev-php, #dev-java and #dev-saas

@@ -29,11 +29,12 @@ permissions: {}
 
 jobs:
   greeting:
+    name: greeting
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
-      issues: write
-      pull-requests: write
+      issues: write # comment on a contributor's first issue
+      pull-requests: write # comment on a contributor's first pull request
     steps:
       - name: Check the tools ref is a full commit SHA
         env:

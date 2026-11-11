@@ -39,6 +39,7 @@ jobs:
         run: cve-scan/zizmor_gate.sh "$RUNNER_TEMP/scanner-bin/zizmor" .github
 
       - name: actionlint (pinned, no shellcheck, no pyflakes, no config; any finding fails)
+        if: ${{ !cancelled() }}
         run: |
           shopt -s nullglob
           files=(.github/workflows/*.yml .github/workflows/*.yaml)

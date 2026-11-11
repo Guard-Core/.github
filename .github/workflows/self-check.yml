@@ -1,0 +1,46 @@
+# Guard-Core/.github checks its own workflows and scripts (LEDGER 6.798, D-318 condition 4). Same pinned scanners and same flags as the reusable cve-scan.yml.
+name: Self check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: self-check-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  self-check:
+    name: self-check
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: cve-scan unit suite
+        run: cd cve-scan/tests && python3 -B -m unittest discover -s .
+
+      - name: Pinning check (every uses is a full SHA, every tool install is pinned)
+        run: python3 -I cve-scan/check_pinning.py .
+
+      - name: Install the pinned scanners (checksums from this repository)
+        run: cve-scan/install_scanners.sh "$RUNNER_TEMP/scanner-bin"
+
+      - name: zizmor (online, pedantic persona, no config, no ignores; any finding fails)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: cve-scan/zizmor_gate.sh "$RUNNER_TEMP/scanner-bin/zizmor" .github
+
+      - name: actionlint (pinned, no shellcheck, no pyflakes, no config; any finding fails)
+        run: |
+          shopt -s nullglob
+          files=(.github/workflows/*.yml .github/workflows/*.yaml)
+          : > "$RUNNER_TEMP/actionlint-empty.yaml"
+          "$RUNNER_TEMP/scanner-bin/actionlint" -shellcheck= -pyflakes= -config-file "$RUNNER_TEMP/actionlint-empty.yaml" -color "${files[@]}"

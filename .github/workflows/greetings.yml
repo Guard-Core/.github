@@ -1,0 +1,65 @@
+# Reusable greeting workflow (LEDGER 6.509, D-234). Replaces actions/first-interaction on `pull_request_target`: the caller runs on its own
+# GITHUB_TOKEN from `issues` (event-driven) and an hourly off-minute schedule that looks back over pull requests, so a fork's first pull
+# request is greeted within the hour without a privileged trigger and without ever checking out the pull request.
+# Callers pin this file by the commit SHA of Guard-Core/.github and pass the same SHA as `tools_ref`. No third-party actions.
+name: Greetings
+
+on:
+  workflow_call:
+    inputs:
+      tools_ref:
+        description: Full commit SHA of Guard-Core/.github that holds greetings/greetings.py (the same SHA the caller pins this workflow by).
+        required: true
+        type: string
+      issue_message:
+        description: Comment posted on a contributor's first issue.
+        required: true
+        type: string
+      pr_message:
+        description: Comment posted on a contributor's first pull request.
+        required: true
+        type: string
+      lookback_hours:
+        description: How far back a scheduled or dispatched run looks for ungreeted issues and pull requests.
+        required: false
+        type: number
+        default: 3
+
+permissions: {}
+
+jobs:
+  greeting:
+    name: greeting
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      issues: write # comment on a contributor's first issue
+      pull-requests: write # comment on a contributor's first pull request
+    steps:
+      - name: Check the tools ref is a full commit SHA
+        env:
+          TOOLS_REF: ${{ inputs.tools_ref }}
+        run: |
+          if [[ ! "$TOOLS_REF" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error::tools_ref must be a full 40-hex commit SHA of Guard-Core/.github"
+            exit 1
+          fi
+
+      - name: Check out the greeting script
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: Guard-Core/.github
+          ref: ${{ inputs.tools_ref }}
+          path: .greetings-tools
+          persist-credentials: false
+
+      - name: Greet first-time contributors
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_PATH: ${{ github.event_path }}
+          ISSUE_MESSAGE: ${{ inputs.issue_message }}
+          PR_MESSAGE: ${{ inputs.pr_message }}
+          LOOKBACK_HOURS: ${{ inputs.lookback_hours }}
+        run: python3 -I .greetings-tools/greetings/greetings.py
